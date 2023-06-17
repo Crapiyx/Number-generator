@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Générateur de nombres aléatoires</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Générateur de nombres aléatoires</h1>
+  <label for="min">Valeur minimale :</label>
+  <input type="number" id="min" min="0">
+  <label for="max">Valeur maximale :</label>
+  <input type="number" id="max" min="0">
+  <br>
+  <button onclick="generateRandomNumber()">Générer</button>
+  <div id="result"></div>
+
+  <script>
+    function generateRandomNumber() {
+      var min = parseInt(document.getElementById('min').value);
+      var max = parseInt(document.getElementById('max').value);
+      
+      if (isNaN(min) || isNaN(max) || min >= max) {
+        document.getElementById('result').textContent = 'Veuillez entrer des valeurs valides.';
+      } else {
+        var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        document.getElementById('result').textContent = 'Nombre généré : ' + randomNumber;
+      }
+    }
+  </script>
+</body>
+</html>
